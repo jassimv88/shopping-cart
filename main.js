@@ -42,25 +42,25 @@ const cartItems = [
 ]
 function populateProducts() {
   boxesDiv.innerHTML = ""
-  products.forEach((product)=>{
+  for (let i = 0; i <products.length; i++) {
     let htmlElement = `
     <div class="box">
     <img src="ps5.png" alt="">
-    <h3 class="description">${product.product_name}</h3>
-    <h4 class="price">$${product.price}</h4>
-    <button class="productButton">+ Add to cart</button>
+    <h3 class="description">${products[i].product_name}</h3>
+    <h4 class="price">$${products[i].price}</h4>
+    <button data-id=${products[i].id} class="productButton">+ Add to cart</button>
     </div>
     `;
     boxesDiv.innerHTML+=htmlElement
-  })
-  const productBtn = document.querySelector('.productButton')
-  productBtn.addEventListener('click', function() {
-    addToCart( );
-  });
+    
+    const productBtn = document.querySelector('.productButton')
+    productBtn.addEventListener('click', addToCart);
+    function addToCart() {
+      console.log(this);
   
-  function addToCart() {
-
+    }
   }
+  
   // event listener for add to cart. function add to cart.
 }
 populateProducts()
