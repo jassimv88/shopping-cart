@@ -43,6 +43,7 @@ const cartItems = [
 function populateProducts() {
   boxesDiv.innerHTML = ""
   for (let i = 0; i <products.length; i++) {
+    // replace line 46-55. Use document.createElement to create HTML elements. Refer to do list.
     let htmlElement = `
     <div class="box">
     <img src="ps5.png" alt="">
@@ -52,6 +53,30 @@ function populateProducts() {
     </div>
     `;
     boxesDiv.innerHTML+=htmlElement
+
+
+    const boxes = document.querySelector('.boxes');
+
+    let newBox = document.createElement('div');
+    newBox.classList = 'box';
+    newBox.append(boxes);
+
+    let newImg = document.createElement('img');
+    newImg.append(newBox);
+
+    let newH3 = document.createElement('h3');
+    newH3.classList = 'description';
+    newH3 = append(newBox);
+
+    let newH4 = document.createElement('h4');
+    newH4.classList = 'price';
+    newH4.append(newBox);
+
+    let newButton = document.createElement('button');
+    newButton.classList = 'productButton';
+    newButton.append(newBox);
+
+    
     
     const productBtn = document.querySelector('.productButton')
     productBtn.addEventListener('click', addToCart);
