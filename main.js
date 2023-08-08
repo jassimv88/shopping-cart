@@ -4,37 +4,37 @@ const products = [
   {
     id: 1,
     product_name: "sony playstation 5",
-    price: 499.99,
+    price: 1000,
     image: "",
   },
   {
     id: 2,
     product_name: "sony playstation 5",
-    price: 499.99,
+    price: 19.99,
     image: "",
   },
   {
     id: 3,
     product_name: "sony playstation 5",
-    price: 499.99,
+    price: 29.99,
     image: "",
   },
   {
     id: 4,
     product_name: "sony playstation 5",
-    price: 499.99,
+    price: 39.99,
     image: "",
   },
   {
     id: 5,
     product_name: "sony playstation 5",
-    price: 499.99,
+    price: 49.99,
     image: "",
   },
   {
     id: 6,
     product_name: "sony playstation 5",
-    price: 499.99,
+    price: 59.99,
     image: "",
   },
 ]
@@ -74,7 +74,9 @@ function populateProducts() {
     newBox.append(newH3);
 
     let newH4 = document.createElement('h4');
-    newH4.textContent = `$${products[i].price}`;
+    // from MDN Internation Number Format
+    const priceValue = new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(products[i].price)
+    newH4.textContent = priceValue;
     newBox.append(newH4);
 
     let newButton = document.createElement('button');
