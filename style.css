@@ -96,5 +96,77 @@ img {
   width: 100%;
 }
 
+#cart {
+  position: fixed;
+  display: flex;
+  visibility: visibility;
+  transform: none;
+  background-color: white;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  flex-direction: column;
+  max-width: 100%;
+  transtion: transform .3s ease-in-out;
+}
+
+#cartHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+#closeCart {
+  border: 0;
+  background-color: white;
+  opacity: 0.5;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+
+.bodyCart {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+.cartItem {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+}
+.cartImg {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+}
+.itemDetail {
+  margin-right: auto;
+}
+.itemPrice {
+  opacity: 0.5;
+}
+.subTotal {
+  display: flex;
+  flex-direction: column
+}
+.removeItemBtn {
+  background-color: white;
+  cursor: pointer;
+  font-size: .875rem;
+  color: red;
+  border: none;
+}
+.editAmount {
+  margin-top: 10px;
+}
+
+.minus, .add, .removeAmount {
+  cursor: pointer;
+  background-color: white;
+  border-radius: 3px;
+}
 
 /* images 500px minimum 6  */

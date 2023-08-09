@@ -22,21 +22,39 @@
     </div>
 
     <div id="cart">
-      <header>
-        <h3>cart</h3>
-        <button class="closeCart">X</button>
+      <header id="cartHeader">
+        <h3>Cart</h3>
+        <button id="closeCart">X</button>
       </header>
-      <section>
+      <section class="bodyCart">
         <div class="cartItem">
-          <img src="ps5.png" alt="">
+          <img class="cartImg" src="ps5.png" alt="">
           <div class="itemDetail">
-            <h5>headsets</h5>
-            <p>$</p>
+            <h5 >headsets</h5>
+            <p class="itemPrice">$500</p>
           </div>
           <div class="subTotal">
-            $price
+            $500
           </div>
           <button class="removeItemBtn">X</button>
+        </div>
+        <div class="editAmount">
+          Edit Amount
+          <button type="button" class="minus">
+            -
+          </button>
+          <span class="amount">
+            1
+          </span>
+          <span class="inCart">
+            in cart
+          </span>
+          <button type="button" class="add">
+            +
+          </button>
+          <button type="button" class="removeAmount">
+            Remove
+          </button>
         </div>
       </section>
     </div>
