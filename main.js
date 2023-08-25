@@ -64,12 +64,12 @@ function populateProducts() {
     boxes.append(newBox);
 
     let newImg = document.createElement('img');
-    newImg.src = 'https://images.pexels.com/photos/301448/pexels-photo-301448.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
+    newImg.src = products[i].image;
     // or newImg.setAttribute('src', 'ps5.png');
     newBox.append(newImg);
 
 
-    // const box1 = document.querySelector('#products#1');
+    // let box1 = document.querySelector('#products#1');
 
     // let newImg1 = document.createElement('img');
     // newImg1.setAttribute('src', 'https://images.pexels.com/photos/301448/pexels-photo-301448.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
@@ -91,7 +91,16 @@ function populateProducts() {
 
     let newButton = document.createElement('button');
     newButton.classList = 'productButton';
-    newButton.textContent = 'Add to Cart';
+    // Try to find product in cart items
+  const productInCart = cartItems.find(function(p){
+    return products[i].id === p.id
+  })
+  // If product exists in the cart, return
+  if(productInCart){
+    newButton.textContent = 'Already in Cart';
+  }
+  else{newButton.textContent = 'Add to Cart'}
+
     newButton.setAttribute('data-id', products[i].id);
     newButton.addEventListener('click', addToCart);
     newBox.append(newButton);
@@ -109,8 +118,16 @@ function addToCart() {
   const product = products.find(function(p){
     return pId === p.id
   })
+  // Try to find product in cart items
+  const productInCart = cartItems.find(function(p){
+    return pId === p.id
+  })
+  // If product exists in the cart, return
+  if(productInCart){
+    return
+  }
   cartItems.push(product);
-  console.log(cartItems);
+  populateProducts();
   loadCartItems();
 }
 
@@ -121,7 +138,7 @@ function loadCartItems() {
     let cartItemHtml = `
     <section class="bodyCart">
         <div class="cartItem">
-          <img class="cartImg" src="ps5.png" alt="">
+          <img class="cartImg" src=${item.image} alt="">
           <div class="itemDetail">
             <h5 >headsets</h5>
             <p class="itemPrice">${item.price}</p>
