@@ -102,7 +102,7 @@ img {
 
 #cart {
   position: fixed;
-  display: flex;
+  display: none;
   visibility: visible;
   transform: none;
   background-color: white;

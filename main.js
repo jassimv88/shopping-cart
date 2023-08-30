@@ -1,5 +1,14 @@
 const boxesDiv = document.querySelector(".boxes")
 
+const closeCartBtn = document.querySelector("#closeCart")
+const cartContents = document.querySelector("#cart")
+
+const openCartBtn = document.querySelector("#openCartButton")
+
+const numOfCartItems = document.querySelector("#numOfCartItems")
+
+
+
 const products = [
   {
     id: 1,
@@ -41,6 +50,18 @@ const products = [
 const cartItems = [
 ]
 populateProducts()
+
+closeCartBtn.addEventListener('click', closeCartFunction)
+
+function closeCartFunction() {
+  cartContents.style.display = "none"
+}
+openCartBtn.addEventListener('click', openCartFunction)
+
+function openCartFunction() {
+  cartContents.style.display = "flex"
+}
+
 
 function populateProducts() {
   boxesDiv.innerHTML = ""
@@ -108,9 +129,21 @@ function populateProducts() {
   // const productBtn = document.querySelector('.productButton')
   // productBtn.addEventListener('click', addToCart);
   
-
+  numOfCartItems.textContent = cartItems.length
   // event listener for add to cart. function add to cart.
 }
+
+
+let price = document.querySelector(".itemPrice");
+let cartTotalPrice = 0;
+
+function AddTotalPriceInCart() {
+  for (let i = 0; i < price.length; i++) {
+    cartTotalPrice += price[i];
+  }
+}
+console.log(cartTotalPrice)
+
 
 
 function addToCart() {
