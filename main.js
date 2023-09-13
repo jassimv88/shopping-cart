@@ -47,7 +47,7 @@ const products = [
     image: "https://images.pexels.com/photos/3739327/pexels-photo-3739327.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
 ]
-const cartItems = [
+let cartItems = [
 ]
 populateProducts()
 
@@ -135,14 +135,18 @@ function populateProducts() {
 
 
 let price = document.querySelector(".itemPrice");
-let cartTotalPrice = 0;
+
 
 function AddTotalPriceInCart() {
-  for (let i = 0; i < price.length; i++) {
-    cartTotalPrice += price[i];
+  let cartTotalPrice = 0;
+  for (let i = 0; i < cartItems.length; i++) {
+    cartTotalPrice += cartItems[i].price;
   }
+  console.log(cartTotalPrice)
+  const cartTotal = document.querySelector('#cartTotal');
+  cartTotal.textContent = new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(cartTotalPrice);
 }
-console.log(cartTotalPrice)
+
 
 
 
@@ -162,6 +166,7 @@ function addToCart() {
   cartItems.push(product);
   populateProducts();
   loadCartItems();
+AddTotalPriceInCart();
 }
 
 function loadCartItems() {
@@ -179,7 +184,7 @@ function loadCartItems() {
           <div class="subTotal">
           ${item.price}
           </div>
-          <button class="removeItemBtn">X</button>
+          <button class="removeItemBtn" data-id=${item.id}>X</button>
         </div>
         <div class="editAmount">
           Edit Amount
@@ -201,6 +206,17 @@ function loadCartItems() {
     `
     cartContainer.innerHTML+=cartItemHtml
   }
+const removeItemBtns = document.querySelectorAll('.removeItemBtn');
+removeItemBtns.forEach(function(removeItemBtn){
+  removeItemBtn.addEventListener("click", removeItemFromCart)
+})
 }
-
+function removeItemFromCart() {
+  const itemId = this.dataset.id;
+  cartItems = cartItems.filter(function(item){
+    return item.id !== parseInt(itemId);
+  })
+  loadCartItems();
+  AddTotalPriceInCart();
+}
 
