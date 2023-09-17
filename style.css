@@ -172,5 +172,14 @@ img {
   background-color: white;
   border-radius: 3px;
 }
+#totalPriceH2 {
+  text-align: right;
+  margin-right: 5px;
+  margin-bottom: 0%;
+}
 
-/* images 500px minimum 6  */
+#cartTotal {
+  text-align: right;
+  margin-right: 5px;
+  margin-top: 0%;
+}

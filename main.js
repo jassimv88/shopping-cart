@@ -161,6 +161,7 @@ function AddTotalPriceInCart() {
   cartTotal.textContent = new Intl.NumberFormat('en', { style: 'currency', currency: 'USD' }).format(cartTotalPrice);
 }
 
+
 // ADDS ITEM/S TO CART ???????????????????????????????????
 function addToCart() {
   // declaring variable for items with id(eg,1,2,3etc) converted from string to integer
@@ -242,4 +243,5 @@ function removeItemFromCart() {
   loadCartItems();
   AddTotalPriceInCart();
 }
+
 
