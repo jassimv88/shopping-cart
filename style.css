@@ -176,10 +176,12 @@ img {
   text-align: right;
   margin-right: 5px;
   margin-bottom: 0%;
+  color: green;
 }
 
 #cartTotal {
   text-align: right;
   margin-right: 5px;
   margin-top: 0%;
+  color: green;
 }
